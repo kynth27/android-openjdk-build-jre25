@@ -27,7 +27,7 @@ index cc958da946..162e27c064 100644
      # autoconf-config.sub exits, so we never reach here, but just in
      # case we do:
 @@ -41,6 +42,10 @@ while test $# -gt 0 ; do
-     case $1 in 
+     case $1 in
          -- )   # Stop option processing
              shift; break ;;
 +        *-android* )
@@ -143,7 +143,7 @@ index c0b5c869c1..392c18d042 100644
 +++ b/hotspot/agent/src/os/linux/Makefile
 @@ -36,9 +36,9 @@ SOURCES  = salibelf.c   \
  
- INCLUDES = -I${JAVA_HOME}/include -I${JAVA_HOME}/include/linux 
+ INCLUDES = -I${JAVA_HOME}/include -I${JAVA_HOME}/include/linux
  
 -OBJS     = $(SOURCES:%.c=$(ARCH)/%.o) $(ARCH)/sadis.o
 +OBJS     = $(SOURCES:%.c=$(ARCH)/%.o) $(ARCH)/sadis.o $(ARCH)/libthread_db.o
@@ -60925,6 +60925,7 @@ index edd3bc69e1..a28d3540f0 100644
 +#endif
  
  #include "utf.h"
+
 diff --git a/common/autoconf/version-numbers b/common/autoconf/version-numbers
 index 73a0ffbd..ed42738d 100644
 --- a/common/autoconf/version-numbers
